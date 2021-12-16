@@ -2,8 +2,6 @@ package rw.ac.rca.termOneExam.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -12,7 +10,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 import rw.ac.rca.termOneExam.domain.City;
 import rw.ac.rca.termOneExam.dto.CreateCityDTO;
 import rw.ac.rca.termOneExam.repository.ICityRepository;
-
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -28,20 +25,20 @@ public class CityServiceTest {
     @Test
     public void getAll_Success() {
 
-        when(cityRepositoryMock.findAll()).thenReturn(Arrays.asList(new City("Muhanga",10),
-                new City("Musanze",10)));
+        when(cityRepositoryMock.findAll()).thenReturn(Arrays.asList(new City("Kigali",10),
+                new City("Muhanga",10)));
 
-        assertEquals("Muhanga",cityService.getAll().get(0).getName());
-        assertEquals("Musanze",cityService.getAll().get(1).getName());
+        assertEquals("Kigali",cityService.getAll().get(0).getName());
+        assertEquals("Muhanga",cityService.getAll().get(1).getName());
         assertEquals(50,cityService.getAll().get(1).getFahrenheit());
     }
 
     @Test
     public void getById_Success() {
 
-        when(cityRepositoryMock.findById(100L)).thenReturn(Optional.of(new City("Muhanga",10)));
+        when(cityRepositoryMock.findById(100L)).thenReturn(Optional.of(new City("Kigali",10)));
 
-        assertEquals("Muhanga",cityService.getById(100).get().getName());
+        assertEquals("Kigali",cityService.getById(100).get().getName());
         assertEquals(10,cityService.getById(100).get().getWeather());
     }
 
@@ -75,11 +72,8 @@ public class CityServiceTest {
         city.setName("Kigali");
         city.setWeather(20);
 
-        when(cityRepositoryMock.existsByName("Muhanga")).thenReturn(true);
+        when(cityRepositoryMock.existsByName("Kigali")).thenReturn(true);
 
-        assertEquals(true, cityService.existsByName("Muhanga"));
-
+        assertEquals(true, cityService.existsByName("Kigali"));
     }
-
-
 }

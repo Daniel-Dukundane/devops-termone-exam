@@ -49,6 +49,4 @@ public class CityService {
 		city.setFahrenheit( (dto.getWeather() * 9/5) + 32);
 		return cityRepository.save(city);
 	}
-
-
 }
