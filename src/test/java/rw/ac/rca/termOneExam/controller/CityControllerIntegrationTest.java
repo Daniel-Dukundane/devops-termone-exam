@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CityControllerIntegrationTest {
 
     @Autowired
+
     private TestRestTemplate restTemplate;
 
     @Test
@@ -47,7 +48,7 @@ public class CityControllerIntegrationTest {
 
         System.out.println(response);
         assertEquals(404, response.getStatusCodeValue());
-        assertEquals("CITY WITH ID 1500 NOT FOUND",response.getBody().getMessage());
+        assertEquals("CITY NOT FOUND WITH ID "+1500,response.getBody().getMessage());
     }
 
     @Test

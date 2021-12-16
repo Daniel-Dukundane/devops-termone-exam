@@ -35,7 +35,7 @@ public class CityController {
 		}
 
 		return ResponseEntity.status(HttpStatus.NOT_FOUND)
-				.body(new APICustomResponse(false, "City not found with id " + id));
+				.body(new APICustomResponse(false, "CITY NOT FOUND WITH ID " + id));
 	}
 
 	@GetMapping("/all")
